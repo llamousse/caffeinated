@@ -1,0 +1,14 @@
+{
+  "name": "caffeine",
+  "version": "1.0.0",
+  "description": "search and review boba/coffee shops",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vicky Yue",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
