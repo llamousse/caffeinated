@@ -2,27 +2,29 @@
 
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-
+chai.use(chaiHttp);
 const expect = chai.expect;
 
-var server = require('../server');
+const { app, runServer, closeServer } = require('../server');
 
 describe('server', function () {
   before(function () {
-    server.listen(8080);
+    return runServer();
   });
 
   after(function () {
-    server.close();
+    return closeServer();
   });
-});
 
-var http = require('http');
-
-describe('/', function () {
-  it('should return 200', function () {
-    http.get('http://localhost:8080', function (res) {
-      expect(res).to.have.status(200);
+  describe('/', function () {
+    it('should return 200', function () {
+      return chai
+        .request(app)
+        .get("/")
+        .then((res) => {
+          expect(res).to.have.status(200);
+        });
     });
   });
+
 });
