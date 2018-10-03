@@ -59,13 +59,7 @@ describe("/api/user", function() {
           .send({
             email
           })
-          // .then(() => expect.fail(null, null, "Request should not succeed"))
           .then(res => {
-            // if (err instanceof chai.AssertionError) {
-            //   throw err;
-            // }
-            //
-            // const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal("ValidationError");
             expect(res.body.message).to.equal("Missing field");

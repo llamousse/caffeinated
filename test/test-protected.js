@@ -37,59 +37,61 @@ describe("Protected endpoint", function() {
     return User.deleteMany({});
   });
 
-  // describe("/api/protected", function() {
-  //   it("Should reject requests with no credentials", function() {
-  //     return chai
-  //       .request(app)
-  //       .get("/api/protected")
-  //       .then(res => {
-  //         expect(res).to.have.status(401);
-  //       });
-  //   });
-  //
-  //   it("Should reject requests with an invalid token", function() {
-  //     const token = jwt.sign(
-  //       {
-  //         email
-  //       },
-  //       "wrongSecret",
-  //       {
-  //         algorithm: "HS256",
-  //         expiresIn: "7d"
-  //       }
-  //     );
-  //
-  //     return chai
-  //       .request(app)
-  //       .get("/api/protected")
-  //       .set("Authorization", `Bearer ${token}`)
-  //       .then(res => {
-  //         expect(res).to.have.status(401);
-  //       });
-  //   });
-  //   it("Should reject requests with an expired token", function() {
-  //     const token = jwt.sign(
-  //       {
-  //         user: {
-  //           email
-  //         },
-  //         exp: Math.floor(Date.now() / 1000) - 10 // Expired ten seconds ago
-  //       },
-  //       JWT_SECRET,
-  //       {
-  //         algorithm: "HS256",
-  //         subject: email
-  //       }
-  //     );
-  //
-  //     return chai
-  //       .request(app)
-  //       .get("/api/protected")
-  //       .set("authorization", `Bearer ${token}`)
-  //       .then(res => {
-  //         expect(res).to.have.status(401);
-  //       });
-  //   });
+  describe("/api/protected", function() {
+    it("Should reject requests with no credentials", function() {
+      return chai
+        .request(app)
+        .get("/api/protected")
+        .then(res => {
+          expect(res).to.have.status(401);
+        });
+    });
+
+    it("Should reject requests with an invalid token", function() {
+      const token = jwt.sign(
+        {
+          email
+        },
+        "wrongSecret",
+        {
+          algorithm: "HS256",
+          expiresIn: "7d"
+        }
+      );
+
+      return chai
+        .request(app)
+        .get("/api/protected")
+        .set("Authorization", `Bearer ${token}`)
+        .then(res => {
+          expect(res).to.have.status(401);
+        });
+    });
+
+    it("Should reject requests with an expired token", function() {
+      const token = jwt.sign(
+        {
+          user: {
+            email
+          },
+          exp: Math.floor(Date.now() / 1000) - 10 // Expired ten seconds ago
+        },
+        JWT_SECRET,
+        {
+          algorithm: "HS256",
+          subject: email
+        }
+      );
+
+      return chai
+        .request(app)
+        .get("/api/protected")
+        .set("authorization", `Bearer ${token}`)
+        .then(res => {
+          expect(res).to.have.status(401);
+        });
+    });
+    
     it("Should send protected data", function() {
       const token = jwt.sign(
         {
@@ -116,4 +118,4 @@ describe("Protected endpoint", function() {
         });
     });
   });
-// });
+});
