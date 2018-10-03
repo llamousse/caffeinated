@@ -7,7 +7,7 @@ let server;
 const express = require('express');
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-// const passport = require("passport");
+const passport = require("passport");
 
 mongoose.Promise = global.Promise;
 
@@ -17,7 +17,7 @@ const app = express();
 
 const { router: usersRouter } = require("./users");
 // const { router: postsRouter } = require("./posts");
-// const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
+const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
 // Logging
 app.use(morgan('common'));
@@ -36,18 +36,18 @@ app.use(function(req, res, next) {
 app.use(express.static('public'));
 
 app.use("/api/users/", usersRouter);
-// app.use("/api/auth/", authRouter);
+app.use("/api/auth/", authRouter);
 // app.use("/api/posts/", postsRouter);
 
-// passport.use(localStrategy);
-// passport.use(jwtStrategy);
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 // A protected endpoint which needs a valid JWT to access it
-// app.get("/api/protected", jwtAuth, (req, res) => {
-//   return res.json({
-//     data: "rosebud"
-//   });
-// });
+app.get("/api/protected", (req, res) => {
+  return res.json({
+    data: "rosebud"
+  });
+});
 
 app.use("*", (req, res) => {
   return res.status(404).json({ message: "Not Found" });
@@ -55,7 +55,7 @@ app.use("*", (req, res) => {
 
 function runServer(databaseUrl, port = PORT) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
+    mongoose.connect(databaseUrl, { useNewUrlParser: true }, err => {
       if (err) {
         return reject(err);
       }
