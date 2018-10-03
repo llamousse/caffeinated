@@ -15,7 +15,7 @@ const { PORT, DATABASE_URL } = require("./config");
 
 const app = express();
 
-const jwtAuth = passport.authenticate("jwt", { session: false });
+// const jwtAuth = passport.authenticate("jwt", { session: false });
 
 const { router: usersRouter } = require("./users");
 // const { router: postsRouter } = require("./posts");
