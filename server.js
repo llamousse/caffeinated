@@ -18,7 +18,7 @@ const app = express();
 const jwtAuth = passport.authenticate("jwt", { session: false });
 
 const { router: usersRouter } = require("./users");
-// const { router: postsRouter } = require("./posts");
+const { router: reviewsRouter } = require("./reviews");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
 // Logging
@@ -39,7 +39,7 @@ app.use(express.static('public'));
 
 app.use("/api/users/", usersRouter);
 app.use("/api/auth/", authRouter);
-// app.use("/api/posts/", postsRouter);
+app.use("/api/reviews/", reviewsRouter);
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
