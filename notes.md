@@ -1,19 +1,16 @@
+To develop the server: nodemon server.js
 To start server: node server.js
 
 To develop react app: react-scripts start
-
 To bundle react app: react-scripts build
-
-To develop the server: nodemon server.js
 
 - Heroku needs npm start to start server
 - Heroku in this situation needs the bundle
 
-Public folder - just for developing
+Public folder - for development
 Build folder - for production
 
 Using server to statically host the build folder
-
 
 Heroku Process:
 1. git push heroku master
