@@ -21,11 +21,12 @@
   },
   "scripts": {
     "start": "node server.js",
+    "build": "react-scripts build",
     "test": "mocha --exit",
+    "eject": "react-scripts eject",
     "dev:react": "react-scripts start",
     "dev:server": "nodemon server.js",
-    "postinstall": "react-scripts build",
-    "build": "react-scripts build"
+    "postinstall": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,11 +40,11 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "faker": "^4.1.0",
     "mocha": "^5.2.0",
-    "react-test-renderer": "^16.5.2",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "react-test-renderer": "^16.5.2"
   }
 }
