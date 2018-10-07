@@ -12,6 +12,7 @@ class App extends Component {
             <a href="#signup">Sign Up</a>
           </div>
         </nav>
+
         <main role="main">
           <header role="banner">
             <h1>Caffeinated</h1>
@@ -46,8 +47,8 @@ class App extends Component {
             <p>[<em>placeholder for image example #2</em>]</p>
             <p>[<em>placeholder for image example #3</em>]</p>
           </section>
-
         </main>
+
         <footer role="content-info">&copy;2018</footer>
       </div>
     );
