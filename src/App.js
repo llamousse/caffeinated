@@ -48,8 +48,6 @@ class App extends Component {
             <p>[<em>placeholder for image example #3</em>]</p>
           </section>
         </main>
-
-        <footer role="content-info">&copy;2018</footer>
       </div>
     );
   }
