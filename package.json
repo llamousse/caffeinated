@@ -20,9 +20,9 @@
     "react-scripts": "2.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "test": "mocha --exit",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:react": "react-scripts start",
     "dev:server": "nodemon server.js",
