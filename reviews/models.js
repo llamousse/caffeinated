@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 const ReviewSchema = mongoose.Schema({
-  description: {
+  review: {
     type: String,
     default: ""
   }
@@ -20,7 +20,7 @@ const ReviewSchema = mongoose.Schema({
 
 ReviewSchema.methods.serialize = function() {
   return {
-    description: this.description || ""
+    review: this.review || ""
   };
 };
 

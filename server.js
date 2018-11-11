@@ -43,20 +43,47 @@ app.use(function(req, res, next) {
 app.use(express.static('build'));
 
 app.use("/api/users/", usersRouter);
-// app.use("/api/auth/", authRouter);
 app.use("/api/reviews/", reviewsRouter);
+// app.use("/api/auth/", authRouter);
 
 // passport.use(localStrategy);
 // passport.use(jwtStrategy);
 
 // A protected endpoint which needs a valid JWT to access it
-app.get("/api/protected", jwtAuth, (req, res) => {
+
+// app.post("review")
+app.get("/reviews", (req, res) => {
+  return res.json({
+    review: req.params.review
+  });
+});
+
+// app.post("/reviews", (req, res) => {
+//   const requiredFields = ["review"];
+//   if(!requiredFields) {
+//     const message = `Missing \`${requiredFields}\` in request body`;
+//     console.error(message);
+//     return res.status(400).send(message);
+//   }
+//
+//   Review.create({
+//     review: req.body.review
+//     // ,
+//     // location: req.body.location
+//     })
+//
+//     .then(Review => res.status(201).json(Review.serialize()))
+//     .catch(err => {
+//       console.error(err);
+//       res.status(500).json({ error: "something went wrong" });
+//   });
+// });
+
+app.get("/api/protected", (req, res) => {
   return res.json({
     data: "rosebud"
   });
 });
-
-// app.post("review")
 
 app.get("/yelp-search", function(req, res) {
   console.log(req.query);
