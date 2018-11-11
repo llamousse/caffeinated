@@ -1,0 +1,44 @@
+.centerLogo {
+  padding-top: 80px;
+}
+
+.logoImg {
+  height: 28px;
+  margin-top: 11px;
+  margin-bottom: -6px;
+}
+
+.centerLogo h1 {
+  display: inline;
+  font-size: 20px;
+  margin-left: 2px;
+}
+
+.searchBar {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.searchBar label {
+  padding-right: 5px;
+  display: block;
+}
+
+.beverageInput, .locationInput, .searchSubmitBtn, .dropDown {
+  margin-bottom: 5px;
+  padding: 5px;
+  padding-left: 6px;
+  width: 80%;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+}
+
+.searchSubmitBtn {
+  margin-top: 5px;
+  color: white;
+  background-color: #942317;
+}

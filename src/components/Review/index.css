@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans",
+  sans-serif;
+  font-size: 15px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-top: 15px;
+  padding-left: 20px;
+  height: 50px;
+  text-align: left;
+  background-color: lightgrey;
+}
+
+h3 {
+  margin-top: 70px;
+  margin-bottom: 18px;
+  padding-left: 20px;
+  font-size: 25px;
+  text-align: left;
+}
+
+textarea {
+  width: 500px;
+  font-size: 15px;
+}
+
+.postField {
+  outline: none;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.review {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 360px;
+}
+
+button {
+  font-size: 15px;
+  display: block;
+  margin-top: 10px;
+  margin-left: 20px;
+  max-width: 250px;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+}

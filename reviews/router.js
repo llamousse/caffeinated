@@ -5,22 +5,11 @@ const passport = require('passport');
 const bodyParser = require("body-parser");
 const { Review } = require("./models");
 const router = express.Router();
-const jsonParser = bodyParser.json();
 
-const jwtAuth = passport.authenticate("jwt", { session: false });
 
-router.get("/", jwtAuth, (req, res) => {
-  Review.find({user: req.user.id}).sort({'date': -1})
-  .then(reviews => {
-    res.json(reviews.map(review => review.serialize()));
-  })
-  .catch(err => {
-    console.error(err);
-    res.status(500).json({ error: "something went wrong" });
-  });
-});
+//router.get("/");
 
-router.get("/:id", jwtAuth, (req, res) => {
+router.get("/:id", (req, res) => {
   Review.findById(req.params.id)
     .then(review => {
       res.json(review.serialize())
@@ -31,11 +20,8 @@ router.get("/:id", jwtAuth, (req, res) => {
     });
 });
 
-router.post("/", jwtAuth, jsonParser, (req, res) => {
-  const requiredFields = ["title", "date", "description"];
-  for (let i = 0; i < requiredFields.length; i++) {
-    const field = requiredFields[i];
-    if (!(field in req.body)) {
+router.post("/", (req, res) => {
+    if (!("review" in req.body)) {
       const message = `Missing \`${field}\` in request body`;
       console.error(message);
       return res.status(400).send(message);
@@ -43,10 +29,10 @@ router.post("/", jwtAuth, jsonParser, (req, res) => {
   }
 
   Review.create({
-    title: req.body.title,
-    date: req.body.date,
-    description: req.body.description,
-    user: req.user.id
+
+    description: req.body.description
+    // ,
+ // location
   })
     .then(Review => res.status(201).json(Review.serialize()))
     .catch(err => {
@@ -55,7 +41,7 @@ router.post("/", jwtAuth, jsonParser, (req, res) => {
     });
 });
 
-router.delete("/:id", jwtAuth, (req, res) => {
+router.delete("/:id", (req, res) => {
   Review.findByIdAndRemove(req.params.id)
     .then(() => {
       res.status(204).json({ message: "success" });

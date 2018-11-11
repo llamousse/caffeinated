@@ -1,0 +1,17 @@
+.discoverContainer {
+  padding-top: 30px;
+}
+
+.discoverHeader {
+  font-size: 15px;
+  /* margin-bottom: 20px; */
+}
+
+.discoverHeaderBot {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.discoverContainer p {
+  padding-bottom: 30px;
+}

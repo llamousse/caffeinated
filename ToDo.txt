@@ -1,0 +1,39 @@
+Caffeinated (one way)
+------------
+
+Sign up
+ ===> search yelp Cafe * Tea
+ ===> Get Results
+  ===> Read Reviews from YELP (NOT from caffeinated)
+  OR
+  ===> Write Reviews
+   ===> Save it in Caffeinated DB (but nobody can read it)
+
+
+Caffeinated (alternative)
+------------
+
+Sign up
+===> search yelp Cafe * Tea
+===> Get Results
+ ===>
+  Read Reviews from YELP (NOT from caffeinated)
+  +
+  Read from caffeinated db the reviews and ADD them to yelp reviews
+  = return the final results to the user
+ OR
+ ===> Write Reviews
+  ===> Save it in Caffeinated DB
+
+//
+Do you wanna change what your app does?
+
+//
+- AuthO log in / sign up authentication
+- Review UI
+
+To do:
+- Results UI layout
+
+Completed:
+- Posting Review UI layout

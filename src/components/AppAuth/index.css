@@ -1,0 +1,22 @@
+.navBarLanding {
+  height: 40px;
+  padding-top: 13px;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  background-color: #942317;
+}
+
+.loginSpace {
+  margin-left: 305px;
+}
+
+.signupSpace {
+  margin-right: 12px;
+  float: right;
+}
+
+.navBarLanding a {
+  text-decoration: none;
+  color: white;
+}
