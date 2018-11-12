@@ -4,7 +4,8 @@ import { ReviewShops } from '../../components/ReviewShops';
 import { DiscoverShops } from '../../components/DiscoverShops';
 import { ListOfItems } from '../../components/ListOfItems';
 import Search from '../../components/Search';
-import { WriteReview } from '../../components/WriteReview';
+import Footer from '../../components/Footer';
+// import { WriteReview } from '../../components/WriteReview';
 
 import './index.css';
 
@@ -30,8 +31,8 @@ export default class Home extends Component {
     return this.state.searchClicked ?
      <ListOfItems business={this.state.business}/> :
      <div>
-       <ReviewShops />
-       <DiscoverShops />
+        <DiscoverShops />
+        <ReviewShops />
      </div>
   }
 
@@ -46,10 +47,9 @@ export default class Home extends Component {
                updateData={this.updateData}/>
               { this.shopResults() }
               { /* <WriteReview /> */}
-
             </main>
           </div>
-          {/* <footer className="footerInfo">&copy; 2018 Vicky Yue</footer> */}
+            <Footer />
         </div>
     );
   }

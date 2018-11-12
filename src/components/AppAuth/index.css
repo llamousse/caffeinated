@@ -8,13 +8,15 @@
 }
 
 .loginSpace {
-  margin-left: 305px;
-}
-
-.signupSpace {
-  margin-right: 12px;
+  /* margin-left: 305px; */
+  margin-right: 10px;
   float: right;
 }
+
+/* .signupSpace {
+  margin-right: 12px;
+  float: right;
+} */
 
 .navBarLanding a {
   text-decoration: none;

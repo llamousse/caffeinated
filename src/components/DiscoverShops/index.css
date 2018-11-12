@@ -3,15 +3,24 @@
 }
 
 .discoverHeader {
-  font-size: 15px;
+  font-size: 17px;
   /* margin-bottom: 20px; */
 }
 
 .discoverHeaderBot {
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom: 20px;
 }
 
 .discoverContainer p {
   padding-bottom: 30px;
+}
+
+.reviewImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 183px;
+  margin-left: 20px;
+  margin-bottom: 25px;
+  display: block;
 }

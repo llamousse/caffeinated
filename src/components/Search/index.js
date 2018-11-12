@@ -3,6 +3,7 @@ import Autocomplete from 'react-google-autocomplete';
 
 //this is the navbar?
 import AppAuth from '../../components/AppAuth';
+import ArrowDown from '../../components/ArrowDown';
 import LogoRed from '../../images/LogoRed.png';
 import './index.css';
 
@@ -42,49 +43,51 @@ export default class Search extends React.Component {
     return (
       <div>
         <AppAuth auth={this.props.auth}/>
-        <div className="centerLogo">
-          <img src={LogoRed} alt="logo" className="logoImg" />
-          <h1>Caffeinated</h1>
+        <div className="bg">
+          <header className="centerLogo">
+            <div className="whiteBg">
+            <img src={LogoRed} alt="logo" className="logoImg" />
+            <h1>Caffeinated</h1>
+
+            <form className="searchBar" onSubmit={this.submitSearchForm}>
+                <label htmlFor="beverageType">Find</label>
+                {" "}
+                <select
+                  className="dropDown"
+                  onChange={e => this.setState({beverageValue: e.target.value})}
+                  value={this.state.beverageValue}>
+                   <option value="coffee">Coffee & Tea</option>
+                   <option value="bubbletea">Bubble Tea</option>
+                </select>
+
+                <label htmlFor="location">Location</label>
+                {" "}
+                <Autocomplete
+                  onPlaceSelected={(place) => {
+                    // console.log(place);
+                    const locationValue = `${place.formatted_address}`;
+                    // console.log(locationValue);
+                    this.setState({location: locationValue});
+                  }}
+                  types={['(regions)']}
+                  className="locationInput"
+                  placeholder="Los Angeles, CA"
+                  type="text"
+                  name="location"
+                  id="location"
+                />
+
+              <button className="searchSubmitBtn"
+                type="submit"
+                name="submit"
+                id="searchButton">
+                Search
+              </button>
+            </form>
+            </div>
+            <ArrowDown />
+          </header>
         </div>
-        <form className="searchBar" onSubmit={this.submitSearchForm}>
-          <div>
-
-            <label htmlFor="beverageType">Find</label>
-            {" "}
-            <select
-              className="dropDown"
-              onChange={e => this.setState({beverageValue: e.target.value})}
-              value={this.state.beverageValue}>
-               <option value="coffee">Coffee & Tea</option>
-               <option value="bubbletea">Bubble Tea</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="location">Location</label>
-            {" "}
-            <Autocomplete
-              onPlaceSelected={(place) => {
-                // console.log(place);
-                const locationValue = `${place.formatted_address}`;
-                // console.log(locationValue);
-                this.setState({location: locationValue});
-              }}
-              types={['(regions)']}
-              className="locationInput"
-              placeholder="Los Angeles, CA"
-              type="text"
-              name="location"
-              id="location"
-            />
-          </div>
-          <button className="searchSubmitBtn"
-            type="submit"
-            name="submit"
-            id="searchButton">
-            Search
-          </button>
-        </form>
       </div>
     );
   }

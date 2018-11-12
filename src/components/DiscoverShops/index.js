@@ -1,5 +1,7 @@
 import React from 'react';
 
+import DiscoverTea from '../../images/DiscoverTea.jpg';
+import DiscoverCoffee from '../../images/DiscoverCoffee.jpg';
 import './index.css';
 
 export class DiscoverShops extends React.Component {
@@ -8,8 +10,9 @@ export class DiscoverShops extends React.Component {
       <div className="discoverContainer">
         <h2 className="discoverHeader">Discover Local Coffee & Tea, and </h2>
         <h2 className="discoverHeaderBot">Bubble Tea Shops in the Area</h2>
-        <p>Coffee</p>
-        <p>Bubble Tea</p>
+
+        <img src={DiscoverTea} alt="teaDiscover" className="reviewImg teaDiscover" />
+        <img src={DiscoverCoffee} alt="coffeeDiscover" className="reviewImg coffeeDiscover" />
       </div>
     );
   }

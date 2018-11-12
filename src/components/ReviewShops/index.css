@@ -1,18 +1,27 @@
 .reviewContainer {
-  margin-top: 80px;
-  padding-top: 30px;
+  margin-top: 40px;
+  /* padding-top: 30px; */
   background-color: white;
 }
 
 .reviewHeaderTop {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .reviewHeaderBot {
-  font-size: 15px;
-  margin-bottom: 20px;
+  font-size: 17px;
+  margin-bottom: 30px;
 }
 
 .reviewContainer p {
   padding-bottom: 30px;
+}
+
+.reviewImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 183px;
+  margin-left: 20px;
+  margin-bottom: 25px;
+  display: block;
 }

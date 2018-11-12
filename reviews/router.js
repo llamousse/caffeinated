@@ -8,11 +8,8 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-//router.get("/");
-
-// GET to get the location of place?
 router.get("/", (req, res) => {
-  Review.find(req.reviews)
+  Review.find(req.review)
     .then(reviews => {
       res.json(reviews.map(review => review.serialize()));
     })
@@ -21,6 +18,11 @@ router.get("/", (req, res) => {
       res.status(500).json({ error: "something went wrong" });
     });
 });
+
+// GET to get the location of place?
+// router.get("/", (req, res) => {
+//   Review.
+// });
 
 router.post("/", jsonParser, (req, res) => {
   const requiredField = ['review'];
@@ -34,7 +36,6 @@ router.post("/", jsonParser, (req, res) => {
 
   Review.create({
     review: req.body.review
-    // ,
     // location: req.body.location
     })
 
