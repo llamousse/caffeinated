@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import LogoWhite from '../../images/LogoWhite.png';
 import './index.css';
 
 export default class AppAuth extends React.Component {
@@ -20,10 +22,14 @@ export default class AppAuth extends React.Component {
 
     return (
       <div className="navBarLanding" role="navigation">
+        <a href="/">
+          <img src={LogoWhite} alt="logo" className="logoNav" />
+        </a>
+
         {
           !isAuthenticated() && (
             <a className="loginSpace"
-              href="#"
+              href="/login"
               onClick={this.login.bind(this)}
              >Log In</a>
             )
