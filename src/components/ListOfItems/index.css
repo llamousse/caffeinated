@@ -1,12 +1,80 @@
-#business-info a {
+/* #businessInfo a {
+  text-decoration: none;
+  display: block;
   color: black;
+} */
+
+#businessInfo button {
+  text-decoration: none;
+  color: white;
 }
 
-#business-info .yelp-page {
-  /* color: blue; */
+.businessName {
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.body-content p {
-  /* margin-top: 5px; */
-  /* margin-bottom: 5px; */
+.businessPic {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  /* max-width: 90%; */
+  max-width: 30%;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+}
+
+.descSection {
+  font-size: 13px;
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.bodyContent {
+  background-color: rgba(229, 231, 233);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+}
+
+.reviewButton {
+  background-color: #942317;
+  border-radius: 10px;
+  padding: 8px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.reviewBus {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1440px) {
+
+  .bodyContent {
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  .reviewButton {
+    width: 30%;
+  }
+
+}
+
+@media screen and (min-width: 750px) and (max-width: 1440px) {
+
+  .reviewButton {
+    width: 20%;
+  }
+
 }

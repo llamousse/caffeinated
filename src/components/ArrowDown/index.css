@@ -1,8 +1,40 @@
 .arrowDown {
-  margin-top: 70%;
+  position: relative;
+  margin-top: 50%;
+  height: 20px;
 }
 
 .discoverTag {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+/*    MEDIA QUERIES    */
+
+/* @media screen and (min-width: 323px) and (max-width: 375px) {
+  .arrowDown {
+    margin-top: 55%;
+  }
+
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .arrowDown {
+    margin-top: 40%;
+  }
+
+} */
+
+@media screen and (min-width: 421px) and (max-width: 656px) {
+  .arrowDown {
+    margin-top: 30%;
+  }
+
+}
+
+@media screen and (min-width: 657px) and (max-width: 1440px) {
+  .arrowDown {
+    margin-top: 20%;
+  }
+
 }

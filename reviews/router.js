@@ -21,8 +21,26 @@ router.get("/", (req, res) => {
 
 // GET to get the location of place?
 // router.get("/", (req, res) => {
-//   Review.
+//   Review.find(req.location)
+//     .then(locations => {
+//       res.json(locations.map(location => location.serialize()));
+//     })
+//     .catch(err => {
+//       console.error(err);
+//       res.status(500).json({error: "something went wrong"});
+//     });
 // });
+
+router.get("/yelp-search", (req, res) => {
+  Review.find(req.location)
+    .then(locations => {
+      res.json(locations.map(location => location.serialize()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: "something went wrong"});
+    });
+});
 
 router.post("/", jsonParser, (req, res) => {
   const requiredField = ['review'];

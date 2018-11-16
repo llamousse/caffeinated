@@ -1,0 +1,33 @@
+.titleNav {
+  font-size: 15px;
+  margin-right: 23px;
+}
+
+/* .storePageNav {
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  background-color: #942317;
+  padding-top: 11px;
+} */
+
+.logoNav {
+  margin-top: -4px;
+}
+
+.reviewButton {
+  /* margin-bottom: 5px;
+  padding: 5px;
+  padding-left: 6px; */
+  width: 95%;
+  border-color: black;
+  border-width: thin;
+  border-radius: 5px;
+}
+
+/* .reviewButton {
+  margin-top: 5px;
+  color: white;
+  background-color: #942317;
+} */

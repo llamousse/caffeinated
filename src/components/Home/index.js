@@ -5,7 +5,7 @@ import { DiscoverShops } from '../../components/DiscoverShops';
 import { ListOfItems } from '../../components/ListOfItems';
 import Search from '../../components/Search';
 import Footer from '../../components/Footer';
-// import { WriteReview } from '../../components/WriteReview';
+// import WriteReview from '../../components/WriteReview';
 
 import './index.css';
 
@@ -42,11 +42,12 @@ export default class Home extends Component {
       <div>
           <div id="root">
             <main>
-              <Search
-               auth={this.props.auth}
-               updateData={this.updateData}/>
-              { this.shopResults() }
-              { /* <WriteReview /> */}
+             <Search
+             auth={this.props.auth}
+             updateData={this.updateData}/>
+            { this.shopResults() }
+
+            { /* <WriteReview /> */ }
             </main>
           </div>
             <Footer />

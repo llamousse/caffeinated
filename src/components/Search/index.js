@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Autocomplete from 'react-google-autocomplete';
-
 //this is the navbar?
 import AppAuth from '../../components/AppAuth';
 import ArrowDown from '../../components/ArrowDown';
@@ -44,7 +43,7 @@ export default class Search extends React.Component {
       <div>
         <AppAuth auth={this.props.auth}/>
         <div className="bg">
-          <header className="centerLogo">
+          <div className="centerLogo">
             <div className="whiteBg">
             <img src={LogoRed} alt="logo" className="logoImg" />
             <h1>Caffeinated</h1>
@@ -76,17 +75,16 @@ export default class Search extends React.Component {
                   name="location"
                   id="location"
                 />
-
-              <button className="searchSubmitBtn"
-                type="submit"
-                name="submit"
-                id="searchButton">
-                Search
-              </button>
+                <button className="searchSubmitBtn"
+                  type="submit"
+                  name="submit"
+                >
+                  Search
+                </button>
             </form>
             </div>
             <ArrowDown />
-          </header>
+          </div>
         </div>
       </div>
     );

@@ -30,6 +30,8 @@
   width: 95%;
   margin-left: 2%;
   font-size: 15px;
+  font-family: inherit;
+  border-color: black;
 }
 
 textarea placeholder {
@@ -45,10 +47,11 @@ textarea placeholder {
 .postButton {
   padding: 5px;
   width: 50%;
-  margin-top: 15px;
+  margin-top: 30px;
   border-color: black;
   border-width: thin;
   border-radius: 5px;
   color: white;
   background-color: #942317;
+  margin-bottom: 40px;
 }

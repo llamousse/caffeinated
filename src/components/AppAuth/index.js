@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import LogoWhite from '../../images/LogoWhite.png';
 import './index.css';
@@ -29,7 +29,7 @@ export default class AppAuth extends React.Component {
         {
           !isAuthenticated() && (
             <a className="loginSpace"
-              href="/login"
+              href="#"
               onClick={this.login.bind(this)}
              >Log In</a>
             )

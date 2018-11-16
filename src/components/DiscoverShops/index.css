@@ -1,15 +1,15 @@
 .discoverContainer {
-  padding-top: 65px;
+  /* padding-top: 65px; */
+  padding-top: 8%;
 }
 
 .discoverHeader {
   font-size: 17px;
-  /* margin-bottom: 20px; */
 }
 
 .discoverHeaderBot {
   font-size: 17px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .discoverContainer p {
@@ -19,8 +19,32 @@
 .reviewImg {
   background-repeat: no-repeat;
   background-size: cover;
-  height: 183px;
-  margin-left: 20px;
-  margin-bottom: 25px;
+  height: auto;
   display: block;
+  max-width: 100%;
+  padding: 8%;
+}
+
+@media screen and (min-width: 680px) and (max-width: 1440px) {
+
+  /* .discoverContainer {
+    padding-top: 75px;
+  } */
+
+  .discoverHeader {
+    font-size: 20px;
+  }
+
+  .discoverHeaderBot {
+    font-size: 20px;
+  }
+
+}
+
+@media screen and (min-width: 680px) and (max-width: 1440px) {
+
+  /* .discoverContainer {
+    padding-top: 85px;
+  } */
+
 }

@@ -58,27 +58,6 @@ app.get("/reviews", (req, res) => {
   });
 });
 
-// app.post("/reviews", (req, res) => {
-//   const requiredFields = ["review"];
-//   if(!requiredFields) {
-//     const message = `Missing \`${requiredFields}\` in request body`;
-//     console.error(message);
-//     return res.status(400).send(message);
-//   }
-//
-//   Review.create({
-//     review: req.body.review
-//     // ,
-//     // location: req.body.location
-//     })
-//
-//     .then(Review => res.status(201).json(Review.serialize()))
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({ error: "something went wrong" });
-//   });
-// });
-
 app.get("/api/protected", (req, res) => {
   return res.json({
     data: "rosebud"
@@ -94,7 +73,7 @@ app.get("/yelp-search", function(req, res) {
       term: req.query.term,
       // categories: req.query.categories,
       // categories: "bubbletea" || "coffee",
-      location: req.query.location || "san francisco, ca" //require OR longitude&latitude
+      location: req.query.location || "los angeles, ca"
     })
     .then(response => {
       console.log(response.jsonBody);

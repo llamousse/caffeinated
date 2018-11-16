@@ -1,18 +1,23 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 import './index.css';
 
 const oneItem = business => (
-  <div id="business-info" key={business.id}>
-    <a className="logo" href={business.url} target="_blank"></a>
-    <h1 className="business-name">{business.name}</h1>
-    <img className="business-pic" src="${business.image_url}" alt="" />
-    <div className="body-content">
-      <p>${business.price}</p>
-      <p>Rating: {business.rating}/5</p>
-      <p>Contact Business: {business.display_phone}</p>
-      <p>Address: {business.location.display_address}</p>
-      <p className="yelp-page">Click to visit Yelp page</p>
+  <div id="businessInfo" key={business.id}>
+    <img className="businessPic" src={business.image_url} alt=""/>
+    <div className="descSection">
+      <a href={business.url} target="_blank" className="businessName">{business.name}</a>
+      <div className="bodyContent">
+        <p>${business.price}</p>
+        <p>Rating: {business.rating}/5</p>
+        <p>Contact: {business.display_phone}</p>
+        <p>Address: {business.location.display_address.join(", ")}</p>
+      </div>
+      <button className="reviewButton">
+        <a href="/writeReview" className="reviewBus">Write Review</a>
+      </button>
     </div>
+
   </div>
 );
 

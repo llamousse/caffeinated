@@ -9,12 +9,11 @@ const ReviewSchema = mongoose.Schema({
   review: {
     type: String,
     default: ""
+  },
+  location: {
+    latitude: { type: String, default: "" },
+    longitude: { type: String, default: "" }
   }
-  // },
-  // location: {
-  //   lat: { type: String, default: "" },
-  //   lng: { type: String, default: "" }
-  // }
   // need to associate user withdb BUT RIGHT NOW  no user
   //is being saved in my DB??
   // should i send a user id with the post when thr user log in?
@@ -25,8 +24,8 @@ const ReviewSchema = mongoose.Schema({
 
 ReviewSchema.methods.serialize = function() {
   return {
-    review: this.review || ""
-    // location: this.location || { lat: 0, lng: 0 }
+    review: this.review || "",
+    location: this.location || { latitude: 0, longitude: 0 }
   };
 };
 
