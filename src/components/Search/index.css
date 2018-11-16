@@ -65,10 +65,24 @@
 
 /*    MEDIA QUERIES    */
 
-@media screen and (min-width: 680px) and (max-width: 1440px) {
+@media screen and (min-width: 670px) and (max-width: 1440px) {
+
+  .whiteBg {
+    margin-left: 18%;
+    margin-right: 18%;
+  }
 
   .beverageInput, .locationInput, .searchSubmitBtn, .dropDown {
     width: 75%;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+
+  .whiteBg {
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
 }
