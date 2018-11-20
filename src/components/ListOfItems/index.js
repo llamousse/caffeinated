@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const oneItem = business => (
@@ -14,7 +14,7 @@ const oneItem = business => (
         <p>Address: {business.location.display_address.join(", ")}</p>
       </div>
       <button className="reviewButton">
-        <a href="/writeReview" className="reviewBus">Write Review</a>
+        <Link to="/writeReview" className="reviewBus">Write Review</Link>
       </button>
     </div>
 

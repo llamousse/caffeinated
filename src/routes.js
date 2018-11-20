@@ -4,7 +4,7 @@ import { Route, Router } from 'react-router-dom';
 
 import Home from './components/Home';
 import AppAuth from './components/AppAuth';
-// import WriteReview from './components/WriteReview';
+import WriteReview from './components/WriteReview';
 
 import Auth from './Auth';
 import history from './history';
@@ -20,11 +20,12 @@ const handleAuthentication = (nextState, replace) => {
 const Routing = () => (
   <Router history={history} component={AppAuth}>
      <div>
+      <Route exact path="/writeReview" component={WriteReview} />
+
        {/* <Route path="/login" render={(props) => <AppAuth auth={auth} {...props} />} /> */}
        {/* <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} /> */}
        {/* <Route exact path="/" component={Home} />  */}
-       {/*<Route exact path="/writeReview" component={WriteReview} />*/}
-       <Route path="/" render={(props) => {
+       <Route exact path="/" render={(props) => {
          handleAuthentication(props);
          return <Home auth={auth} {...props}/>
        }}>

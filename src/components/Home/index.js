@@ -5,7 +5,7 @@ import { DiscoverShops } from '../../components/DiscoverShops';
 import { ListOfItems } from '../../components/ListOfItems';
 import Search from '../../components/Search';
 import Footer from '../../components/Footer';
-// import WriteReview from '../../components/WriteReview';
+import WriteReview from '../../components/WriteReview';
 
 import './index.css';
 
@@ -17,6 +17,14 @@ export default class Home extends Component {
       business: null
     };
     this.updateData = this.updateData.bind(this);
+    this.displayYelpReviews = this.displayYelpReviews.bind(this);
+  }
+
+  displayYelpReviews(yelpReviews) {
+    this.setState({
+      review: yelpReviews,
+      searchClicked: true
+    })
   }
 
   updateData(data) {
@@ -42,12 +50,11 @@ export default class Home extends Component {
       <div>
           <div id="root">
             <main>
-             <Search
+            <Search
              auth={this.props.auth}
-             updateData={this.updateData}/>
-            { this.shopResults() }
-
-            { /* <WriteReview /> */ }
+             updateData={this.updateData}
+             displayYelpReviews={this.displayYelpReviews}/>
+            { this.shopResults()}
             </main>
           </div>
             <Footer />

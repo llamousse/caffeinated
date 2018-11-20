@@ -1,5 +1,5 @@
 .reviewNav {
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   right: 0;
   top: 0;
@@ -15,12 +15,12 @@
 }
 
 .busName {
-  margin-top: 70px;
+  margin-top: 18px;
   margin-left: 10px;
   margin-bottom: 18px;
   padding-left: 5px;
   font-size: 25px;
-  text-align: left;
+  text-align: center;
 }
 
 .postField {
@@ -28,7 +28,8 @@
   padding: 15px;
   box-sizing: border-box;
   width: 95%;
-  margin-left: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
   font-size: 15px;
   font-family: inherit;
   border-color: black;
@@ -54,4 +55,52 @@ textarea placeholder {
   color: white;
   background-color: #942317;
   margin-bottom: 40px;
+}
+
+.push {
+  height: 134px;
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  .postButton {
+    width: 35%;
+  }
+
+}
+
+
+@media screen and (min-width: 550px) and (max-width: 768px) {
+
+  .postField {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  .postField {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .postButton {
+    width: 25%;
+  }
+
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+  .postField {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .postButton {
+    width: 20%;
+  }
+
 }

@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 //     });
 // });
 
-router.get("/yelp-search", (req, res) => {
+router.get("/", (req, res) => {
   Review.find(req.location)
     .then(locations => {
       res.json(locations.map(location => location.serialize()));
@@ -54,6 +54,7 @@ router.post("/", jsonParser, (req, res) => {
 
   Review.create({
     review: req.body.review
+    // ,
     // location: req.body.location
     })
 

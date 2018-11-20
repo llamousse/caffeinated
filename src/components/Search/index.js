@@ -31,11 +31,16 @@ export default class Search extends React.Component {
     fetch("http://localhost:8080/yelp-search?location="+`${location}`+"&term="+`${beverageValue}`)
       .then(res =>
        res.json().then(
-         data => updateData(data.businesses)
-       ))
-      .then(
-        res => console.log("here is the response", res)
-      );
+         data => updateData(data.businesses),
+         console.log("here is the response", res)
+      ));
+
+/*    fetch("http://localhost:8080/yelp-reviews")
+      .then(res =>
+        res.json().then(
+          reviewData => displayYelpReviews(reviewData.reviews),
+          res => console.log("here are the reviews", res)
+      )); */
   }
 
   render() {

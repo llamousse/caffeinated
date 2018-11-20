@@ -51,6 +51,8 @@ app.use("/api/reviews/", reviewsRouter);
 
 // A protected endpoint which needs a valid JWT to access it
 
+/////////// LOCAL DB //////////////
+
 // app.post("review")
 app.get("/reviews", (req, res) => {
   return res.json({
@@ -58,15 +60,20 @@ app.get("/reviews", (req, res) => {
   });
 });
 
-app.get("/api/protected", (req, res) => {
-  return res.json({
-    data: "rosebud"
-  });
-});
+// app.get("/api/protected", (req, res) => {
+//   return res.json({
+//     data: "rosebud"
+//   });
+// });
+
+/////////////////////////////////////////////
+
+///////////////// YELP DB /////////////////
+const aliasArray = [];
 
 app.get("/yelp-search", function(req, res) {
   console.log(req.query);
-  console.log(req.params);
+  // console.log(req.params);
   client
     .search({
       //term: req.term, //one of the selected item
@@ -78,11 +85,44 @@ app.get("/yelp-search", function(req, res) {
     .then(response => {
       console.log(response.jsonBody);
       res.send(response.jsonBody);
+
+      for(let i = 0; i < response.jsonBody.businesses.length; i++) {
+        const busID = response.jsonBody.businesses[i].alias;
+        aliasArray.push(busID);
+      }
+      console.log(aliasArray);
     })
     .catch(e => {
       console.log(e);
     });
 });
+
+// app.get("/yelp-reviews", function(req, res) {
+//
+//   for(let i = 0; i < aliasArray.length; i++) {
+//     client
+//       .reviews(aliasArray[i])
+//       .then(response => {
+//         console.log(response.jsonBody);
+//         res.send(response.jsonBody);
+//       })
+//       .catch(e => {
+//         console.log(e);
+//       });
+//   }
+
+  // client
+  //   .reviews(aliasArray[i])
+  //   .then(response => {
+  //     console.log(response.jsonBody);
+  //     res.send(response.jsonBody);
+  //   })
+  //   .catch(e => {
+  //     console.log(e);
+  //   });
+// });
+
+/////////////////////////////////////////////
 
 app.use("*", (req, res) => {
   return res.status(404).json({ message: "Not Found" });

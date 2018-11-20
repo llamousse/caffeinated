@@ -1,6 +1,8 @@
 import React from 'react';
 
 import LogoWhite from '../../images/LogoWhite.png';
+import Footer from '../../components/Footer';
+
 import { ListOfItems } from '../../components/ListOfItems';
 import './index.css';
 
@@ -23,10 +25,13 @@ export default class WriteReview extends React.Component {
     return(
       <div id="writeReview">
       	<nav className="reviewNav" role="navigation">
-          <img src={LogoWhite} alt="logo" className="logoImg imgHeader" />
-          Complete Your Review</nav>
+          <a href="/">
+            <img src={LogoWhite} alt="logo" className="logoImg imgHeader" />
+          </a>
+          Complete Your Review
+        </nav>
 
-      	<h3 className="busName">Intelligentsia</h3>
+      	<h3 className="busName">Shop Name Here</h3>
 
       	<div className="review">
       		<textarea className="postField"
@@ -37,6 +42,11 @@ export default class WriteReview extends React.Component {
       	<button className="postButton" type="submit"
           name="submit" id="postButton"
           onSubmit={this.submitPostReview}>Post Review</button>
+
+        <div className="push"></div>
+
+        <Footer />
+
       </div>
     );
   }
