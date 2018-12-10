@@ -3,9 +3,8 @@ import * as React from 'react';
 import { Route, Router } from 'react-router-dom';
 
 import Home from './components/Home';
-import AppAuth from './components/AppAuth';
+import AuthNavBar from './components/AuthNavBar';
 import WriteReview from './components/WriteReview';
-
 import Auth from './Auth';
 import history from './history';
 
@@ -18,10 +17,10 @@ const handleAuthentication = (nextState, replace) => {
 }
 
 const Routing = () => (
-  <Router history={history} component={AppAuth}>
+  <Router history={history} component={AuthNavBar}>
      <div>
-      <Route exact path="/writeReview" component={WriteReview} />
 
+      <Route exact path="/writeReview" component={WriteReview} />
        {/* <Route path="/login" render={(props) => <AppAuth auth={auth} {...props} />} /> */}
        {/* <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} /> */}
        {/* <Route exact path="/" component={Home} />  */}

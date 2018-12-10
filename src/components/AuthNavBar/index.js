@@ -3,7 +3,7 @@ import React from 'react';
 import LogoWhite from '../../images/LogoWhite.png';
 import './index.css';
 
-export default class AppAuth extends React.Component {
+export default class AuthNavBar extends React.Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }

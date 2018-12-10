@@ -13,9 +13,11 @@ const oneItem = business => (
         <p>Contact: {business.display_phone}</p>
         <p>Address: {business.location.display_address.join(", ")}</p>
       </div>
-      <button className="reviewButton">
-        <Link to="/writeReview" className="reviewBus">Write Review</Link>
-      </button>
+
+      <Link to="/writeReview" className="reviewBus">
+      <button className="reviewButton">Write Review</button>
+      </Link>
+
     </div>
 
   </div>
@@ -24,15 +26,3 @@ const oneItem = business => (
 export const ListOfItems = (props) => (
   props.business.map(item => oneItem(item))
 );
-
-
-// Log In, Log Out + React Router to Link Pages
-// think about app functionalities
-
-// Functions
-// 1. log in account to write REVIEWS + see reviews
-//    user has written -> also other reviews from Yelp
-//    too .. 2 APIs together?
-// 1. log in account to write REVIEWS + see your own
-//    reviews ONLY . if want to see Yelp reviews, don't
-//    need account

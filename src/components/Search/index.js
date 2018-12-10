@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import Autocomplete from 'react-google-autocomplete';
-//this is the navbar?
-import AppAuth from '../../components/AppAuth';
+import AuthNavBar from '../../components/AuthNavBar';
 import ArrowDown from '../../components/ArrowDown';
 import LogoRed from '../../images/LogoRed.png';
 import './index.css';
@@ -13,18 +13,16 @@ export default class Search extends React.Component {
       isLoading: true,
       error: null,
       beverageValue: 'coffee',
-      location: '',
-      shopData: []
+      location: ''
     };
     this.submitSearchForm = this.submitSearchForm.bind(this);
   }
 
   submitSearchForm(e) {
     e.preventDefault();
-
     const beverageValue = this.state.beverageValue;
     const location = this.state.location;
-    const { updateData } = this.props;
+    const { updateData, updateName } = this.props;
 
     console.log("i clicked submit", beverageValue, location);
 
@@ -33,7 +31,22 @@ export default class Search extends React.Component {
        res.json().then(
          data => updateData(data.businesses),
          console.log("here is the response", res)
-      ));
+      ))
+      .catch(err => {
+        console.log("error", err)
+      });
+
+      console.log("info still here?", beverageValue, location);
+
+      fetch("http://localhost:8080/yelp-search?location="+`${location}`+"&term="+`${beverageValue}`)
+        .then(res =>
+         res.json().then(
+           otherData => updateName(otherData.businesses),
+           console.log("here are the names", res)
+        ))
+        .catch(err => {
+          console.log("error", err)
+        });
 
 /*    fetch("http://localhost:8080/yelp-reviews")
       .then(res =>
@@ -46,7 +59,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div>
-        <AppAuth auth={this.props.auth}/>
+        <AuthNavBar auth={this.props.auth}/>
         <div className="bg">
           <div className="centerLogo">
             <div className="whiteBg">
@@ -80,7 +93,8 @@ export default class Search extends React.Component {
                   name="location"
                   id="location"
                 />
-                <button className="searchSubmitBtn"
+                <button
+                  className="searchSubmitBtn"
                   type="submit"
                   name="submit"
                 >
