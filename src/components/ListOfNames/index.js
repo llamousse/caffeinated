@@ -1,8 +1,8 @@
 import React from 'react';
 
 const oneName = nameList => (
-  <div className="nameBus" key={business.id}>
-    {busName.name}
+  <div className="nameBus" key={nameList.id}>
+    {nameList.name}
   </div>
 );
 

@@ -15,30 +15,23 @@ export default class WriteReview extends React.Component {
     super(props);
     this.state = {
       reviewList: [],
-      busName: [],
+      busName: this.props.businessName,
       reviewSubmitted: false
     };
     this.submitPostReview = this.submitPostReview.bind(this);
-    this.updateName = this.updateName.bind(this);
   }
 
   componentDidMount() {
-
-
     fetch("http://localhost:8080/api/reviews")
       .then(response => response.json())
       .then(data => {
         this.setState({
             reviewList: data
-        });
+        })
       })
       .catch(error => {
         console.log("could not GET reviews", error)
       });
-  }
-
-  nameResults() {
-    return <ListOfNames busName = {this.state.busName}/>
   }
 
   handleInputSubmission(event) {
@@ -65,6 +58,7 @@ export default class WriteReview extends React.Component {
 
   render() {
     const { reviewList, reviewSubmitted } = this.state;
+    console.log("this is the list of business names", this.state.busName);
     return (
       <div id="writeReview">
       <nav className="reviewNav" role="navigation">
@@ -75,11 +69,10 @@ export default class WriteReview extends React.Component {
       </nav>
 
       <h3 className="busName">
-        { this.nameResults() }
+        Business Name Here
       </h3>
 
       <form className="reviewForm" onSubmit={this.submitPostReview}>
-
         <div className="review">
           <textarea className="postField"
             placeholder="Your review will be helpful for others looking for other great local coffee, tea, and bubble tea shops!"
@@ -91,7 +84,6 @@ export default class WriteReview extends React.Component {
 
         <button className="postButton" type="submit">Post Review</button>
         <div className="push"></div>
-
       </form>
 
       <div>
@@ -111,6 +103,17 @@ export default class WriteReview extends React.Component {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,6 +195,13 @@ export default class WriteReview extends React.Component {
 //     </div>
 //   );
 // }
+
+
+
+
+
+
+
 
 
 

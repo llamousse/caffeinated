@@ -13,7 +13,8 @@ export default class Search extends React.Component {
       isLoading: true,
       error: null,
       beverageValue: 'coffee',
-      location: ''
+      location: '',
+      businessName: []
     };
     this.submitSearchForm = this.submitSearchForm.bind(this);
   }
@@ -22,7 +23,7 @@ export default class Search extends React.Component {
     e.preventDefault();
     const beverageValue = this.state.beverageValue;
     const location = this.state.location;
-    const { updateData, updateName } = this.props;
+    const { updateData } = this.props;
 
     console.log("i clicked submit", beverageValue, location);
 
@@ -36,24 +37,16 @@ export default class Search extends React.Component {
         console.log("error", err)
       });
 
-      console.log("info still here?", beverageValue, location);
-
       fetch("http://localhost:8080/yelp-search?location="+`${location}`+"&term="+`${beverageValue}`)
-        .then(res =>
-         res.json().then(
-           otherData => updateName(otherData.businesses),
-           console.log("here are the names", res)
-        ))
+        .then(res => res.json())
+        .then(nameData => {
+          this.setState({
+              businessName: nameData.businesses
+          })
+        })
         .catch(err => {
           console.log("error", err)
         });
-
-/*    fetch("http://localhost:8080/yelp-reviews")
-      .then(res =>
-        res.json().then(
-          reviewData => displayYelpReviews(reviewData.reviews),
-          res => console.log("here are the reviews", res)
-      )); */
   }
 
   render() {
@@ -64,6 +57,7 @@ export default class Search extends React.Component {
           <div className="centerLogo">
             <div className="whiteBg">
             <img src={LogoRed} alt="logo" className="logoImg" />
+
             <h1>Caffeinated</h1>
 
             <form className="searchBar" onSubmit={this.submitSearchForm}>
